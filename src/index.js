@@ -28,6 +28,7 @@ async function main() {
 		prefix: `${process.env.GITHUB_WORKSPACE}/`,
 		head: context.payload.pull_request.head.ref,
 		base: context.payload.pull_request.base.ref,
+		subproject: core.getInput("subproject")
 	}
 
 	const lcov = await parse(raw)
