@@ -1,5 +1,5 @@
 import { tabulate } from "./tabulate"
-import { th, tr, td, table, tbody, a, b, span, fragment } from "./html"
+import { th, tr, td, table, tbody, a, b} from "./html"
 
 test("tabulate should generate a correct table", function() {
 	const data = [
@@ -119,6 +119,7 @@ test("tabulate should generate a correct table", function() {
 		repository: "example/foo",
 		commit: "2e15bee6fe0df5003389aa5ec894ec0fea2d874a",
 		prefix: "/files/project/",
+		subproject: "someProjectInMonoRepo"
 	}
 
 	const html = table(
@@ -134,7 +135,7 @@ test("tabulate should generate a correct table", function() {
 				td(
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/index.js`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/index.js`,
 						},
 						"index.js",
 					),
@@ -150,7 +151,7 @@ test("tabulate should generate a correct table", function() {
 					"&nbsp; &nbsp;",
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/src/foo.js`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/src/foo.js`,
 						},
 						"foo.js",
 					),
@@ -161,7 +162,7 @@ test("tabulate should generate a correct table", function() {
 				td(
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/src/foo.js#L37`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/src/foo.js#L37`,
 						},
 						37,
 					),
@@ -173,7 +174,7 @@ test("tabulate should generate a correct table", function() {
 					"&nbsp; &nbsp;",
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/src/bar/baz.js`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/src/bar/baz.js`,
 						},
 						"baz.js",
 					),
@@ -184,14 +185,14 @@ test("tabulate should generate a correct table", function() {
 				td(
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/src/bar/baz.js#L20`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/src/bar/baz.js#L20`,
 						},
 						20,
 					),
 					", ",
 					a(
 						{
-							href: `https://github.com/${options.repository}/blob/${options.commit}/src/bar/baz.js#L21`,
+							href: `https://github.com/${options.repository}/blob/${options.commit}/someProjectInMonoRepo/src/bar/baz.js#L21`,
 						},
 						21,
 					),

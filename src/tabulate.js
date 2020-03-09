@@ -52,7 +52,7 @@ function toRow(file, indent, options) {
 
 function filename(file, indent, options) {
 	const relative = file.file.replace(options.prefix, "")
-	const href = `https://github.com/${options.repository}/blob/${options.commit}/${relative}`
+	const href = `https://github.com/${options.repository}/blob/${options.commit}/${options.subproject}/${relative}`
 	const parts = relative.split("/")
 	const last = parts[parts.length - 1]
 	const space = indent ? "&nbsp; &nbsp;" : ""
@@ -86,7 +86,7 @@ function uncovered(file, options) {
 	return all
 		.map(function(line) {
 			const relative = file.file.replace(options.prefix, "")
-			const href = `https://github.com/${options.repository}/blob/${options.commit}/${relative}#L${line}`
+			const href = `https://github.com/${options.repository}/blob/${options.commit}/${options.subproject}/${relative}#L${line}`
 			return a({ href }, line)
 		})
 		.join(", ")

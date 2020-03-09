@@ -1,10 +1,10 @@
 {
 	"name": "lcov-reporter-action",
-	"version": "0.2.17",
+	"version": "1.0.0",
 	"description": "Comments a pull request with the lcov code coverage",
 	"license": "MIT",
 	"author": "Romeo Van Snick",
-	"repository": "https://github.com/romeovs/lcov-reporter-action",
+	"repository": "https://github.com/risetechnologies/lcov-reporter-action",
 	"keywords": [
 		"actions",
 		"pull-request",
@@ -14,7 +14,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "rollup -c",
-		"test": "jest --passWithNoTests --coverage",
+		"test": "jest --coverage",
 		"local": "babel-node src/cli",
 		"format": "prettier --write src/*.js src/**/*.js"
 	},
