@@ -2,7 +2,7 @@ name: RISE Code Coverage Report
 description: Comments a pull request with the code coverage
 author: Romeo Van Snick, Armin Ghajar Jazi
 branding:
-  icon: check-square
+  icon: percent
   color: green
 inputs:
   github-token:
