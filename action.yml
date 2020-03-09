@@ -1,6 +1,6 @@
 name: Code Coverage Report
 description: Comments a pull request with the code coverage
-author: Romeo Van Snick
+author: Romeo Van Snick, Armin Ghajar Jazi
 branding:
   icon: check-square
   color: green
@@ -13,6 +13,9 @@ inputs:
     required: false
   lcov-base:
     description: The location of the lcov file for the base branch
+    required: false
+  subproject:
+    description: projects folder in repo, where the coverage report is generated
     required: false
 runs:
   using: node12
