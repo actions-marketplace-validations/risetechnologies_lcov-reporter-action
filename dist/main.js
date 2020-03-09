@@ -24361,7 +24361,10 @@ function toRow(file, indent, options) {
 
 function filename(file, indent, options) {
 	const relative = file.file.replace(options.prefix, "");
-	const href = `https://github.com/${options.repository}/blob/${options.commit}/${options.subproject}/${relative}`;
+	const filePath = options.subproject
+		? `${options.subproject}/${relative}`
+		: relative;
+	const href = `https://github.com/${options.repository}/blob/${options.commit}/${filePath}`;
 	const parts = relative.split("/");
 	const last = parts[parts.length - 1];
 	const space = indent ? "&nbsp; &nbsp;" : "";
@@ -24395,7 +24398,12 @@ function uncovered(file, options) {
 	return all
 		.map(function(line) {
 			const relative = file.file.replace(options.prefix, "");
-			const href = `https://github.com/${options.repository}/blob/${options.commit}/${options.subproject}/${relative}#L${line}`;
+			const filePath = options.subproject
+				? `${options.subproject}/${relative}`
+				: relative;
+			const href = `https://github.com/${options.repository}/blob/${
+				options.commit
+			}/${filePath}#L${line}`;
 			return a({ href }, line)
 		})
 		.join(", ")
@@ -24460,6 +24468,7 @@ async function main$1() {
 		prefix: `${process.env.GITHUB_WORKSPACE}/`,
 		head: github_1.payload.pull_request.head.ref,
 		base: github_1.payload.pull_request.base.ref,
+		subproject: core$1.getInput("subproject")
 	};
 
 	const lcov = await parse$2(raw);
