@@ -4,8 +4,9 @@ import { percentage } from "./lcov"
 import { tabulate } from "./tabulate"
 
 export function comment(lcov, options) {
+	const subprojectComment = options.subproject && `for ${options.subproject}`
 	return fragment(
-		`Coverage after merging ${b(options.head)} into ${b(options.base)}`,
+		`Coverage ${subprojectComment} after merging ${b(options.head)} into ${b(options.base)}`,
 		table(tbody(tr(th(percentage(lcov).toFixed(2), "%")))),
 		"\n\n",
 		details(summary("Coverage Report"), tabulate(lcov, options)),
