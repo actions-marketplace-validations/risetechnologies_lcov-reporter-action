@@ -24412,7 +24412,7 @@ function uncovered(file, options) {
 function comment (lcov, options) {
 	const subprojectComment = options.subproject && `for ${options.subproject}`
 	return fragment(
-		`Coverage ${subprojectComment} after merging ${b(options.head)} into ${b(options.base)}`,
+		`Coverage ${b(subprojectComment)} after merging ${b(options.head)} into ${b(options.base)}`,
 		table(tbody(tr(th(percentage(lcov).toFixed(2), "%")))),
 		"\n\n",
 		details(summary("Coverage Report"), tabulate(lcov, options)),
@@ -24437,7 +24437,7 @@ function diff(lcov, before, options) {
 
 	const subprojectComment = options.subproject && `for ${options.subproject}`
 	return fragment(
-		`Coverage ${subprojectComment} after merging ${b(options.head)} into ${b(options.base)}`,
+		`Coverage ${b(subprojectComment)} after merging ${b(options.head)} into ${b(options.base)}`,
 		table(tbody(tr(
 			th(pafter.toFixed(2), "%"),
 			th(arrow, " ", plus, pdiff.toFixed(2), "%"),
